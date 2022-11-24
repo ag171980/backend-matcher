@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "./node_modules/.bin/netlify-lambda serve src",
+    "start": "node app.js",
     "build": "./node_modules/.bin/netlify-lambda serve src"
   },
   "author": "Nicolas G",
