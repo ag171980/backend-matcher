@@ -35,7 +35,7 @@ export const crearUsuario = async (req, res) => {
         if (userExists === null) {
             const users = await UserModel.create(
                 {
-                    id: uuidv4(),
+                    id_user: uuidv4(),
                     name: req.body.name,
                     age: req.body.age,
                     email: req.body.email,
