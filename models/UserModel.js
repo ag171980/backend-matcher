@@ -7,7 +7,7 @@ import db from "../database/db.js"
 import { DataTypes } from "sequelize"
 
 const UserModel = db.define("users", {
-    id_user:{type:DataTypes.STRING},
+    id:{type:DataTypes.STRING},
     name: { type: DataTypes.STRING },
     email: { type: DataTypes.STRING },
     age: { type: DataTypes.INTEGER },
