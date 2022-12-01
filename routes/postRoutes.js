@@ -4,7 +4,8 @@ import bodyParser from 'body-parser'
 import { getAllPosts, getPostById, getPostsByIdUser, crearPost } from "../controllers/postController.js"
 
 import multer from 'multer'
-const upload = multer({ dest: '../front/src/posts/' })
+// const upload = multer({ dest: '../front/src/posts/' })
+const upload = multer({ dest: './uploads/' })
 
 const router = express.Router()
 

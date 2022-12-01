@@ -1,8 +1,9 @@
 //importo el modelo
 
 
-import { EmptyResultError } from "sequelize";
+import { EmptyResultError, UUIDV4 } from "sequelize";
 import UserModel from "../models/UserModel.js";
+import {v4 as uuidv4} from 'uuid'
 /* METODOS DEL CRUD */
 
 
@@ -28,11 +29,13 @@ export const getUserById = async (req, res) => {
 }
 
 export const crearUsuario = async (req, res) => {
+    
     try {
         const userExists = await UserModel.findOne({ where: { email: req.body.email } })
         if (userExists === null) {
             const users = await UserModel.create(
                 {
+                    id: uuidv4(),
                     name: req.body.name,
                     age: req.body.age,
                     email: req.body.email,
@@ -40,26 +43,13 @@ export const crearUsuario = async (req, res) => {
                     genderInterest: req.body.genderInterest,
                     password: req.body.password,
                     description: req.body.description,
-                    img1: "imagen1.jpg",
-                    img2: "imagen2.jpg",
-                    img3: "imagen3.jpg",
-                    img4: "imagen4.jpg",
-                    // img1: req.body.img1,
-                    // img2: req.body.img2,
-                    // img3: req.body.img3,
-                    // img4: req.body.img4,
-
-                    // gender: "default",
-                    // genderInterest: "default",
-                    // password: "default",
-                    // description: "default",
-                    // img1: "imagen1.jpg",
-                    // img2: "imagen2.jpg",
-                    // img3: "imagen3.jpg",
-                    // img4: "imagen4.jpg",
+                    img1: req.files[0].filename,
+                    img2: req.files[1].filename,
+                    img3: req.files[2].filename,
+                    img4: req.files[3].filename,
                     createdAt: req.body.createdAt,
                     updatedAt: req.body.updatedAt
-                }, { fields: ['name', 'email', 'gender', 'genderInterest', 'age', 'password', 'description', 'img1', 'img2', 'img3', 'img4', 'createdAt', 'updatedAt'] })
+                }, { fields: ['id','name', 'email', 'gender', 'genderInterest', 'age', 'password', 'description', 'img1', 'img2', 'img3', 'img4', 'createdAt', 'updatedAt'] })
             // { fields: ['name', 'email', 'gender', 'genderInterest', 'age', 'password', 'description', 'img1', 'img2', 'img3', 'img4', 'createdAt', 'updatedAt'] }
             res.json({ message: "Usuario registrado correctamente" })
         } else {
