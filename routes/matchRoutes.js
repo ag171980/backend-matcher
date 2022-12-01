@@ -1,7 +1,7 @@
 import express from "express"
 import cors from 'cors'
 import bodyParser from 'body-parser'
-import { getAllMatches, getMatchById, crearMatch } from "../controllers/userController.js"
+import { getAllMatches, getMatchById, crearMatch } from "../controllers/matchController.js"
 
 const router = express.Router()
 
