@@ -6,7 +6,7 @@ import db from "../database/db.js"
 
 import { DataTypes } from "sequelize"
 
-const UserModel = db.define("test", {
+const UserModel = db.define("tests", {
     name: { type: DataTypes.STRING },
 })
 
