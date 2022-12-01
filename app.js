@@ -2,11 +2,13 @@ import express from "express"
 import serverless from 'serverless-http'
 import cors from "cors"
 import userRoutes from "./routes/userRoutes.js"
+import testRoutes from "./routes/testRoutes.js"
 import db from "./database/db.js"
 import { PORT } from "./config.js"
 const app = express()
 
-app.use("/", userRoutes)
+// app.use("/", userRoutes)
+app.use("/", testRoutes)
 
 /* app.use("/registrarme",blogRegister) */
 
