@@ -1,9 +1,8 @@
 //importo el modelo
 
 
-import { EmptyResultError, UUIDV4 } from "sequelize";
 import MatchModel from "../models/MatchModel.js";
-import {v4 as uuidv4} from 'uuid'
+
 /* METODOS DEL CRUD */
 
 
