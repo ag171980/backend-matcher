@@ -26,7 +26,7 @@ export const getRandomUsers = async(req, res)=>{
         users = users.filter(user=> user.genderInterest === "man")
         let contador = 0;
         users.sort(()=> Math.random() - 0.5)
-        while( contador < 9){
+        while( contador < users.length){
             usersTemp.push(users[contador])
             contador++;
         }
