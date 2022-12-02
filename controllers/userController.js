@@ -22,7 +22,7 @@ export const getAllUsers = async (req, res) => {
 export const getRandomUsers = async(req, res)=>{
     let usersTemp = []
     try{
-        const users = await UserModel.findAll()
+        let users = await UserModel.findAll()
         console.log(users)
         let contador = 0;
         users.sort(()=> Math.random() - 0.5)
