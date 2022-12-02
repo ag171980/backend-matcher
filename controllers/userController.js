@@ -19,6 +19,24 @@ export const getAllUsers = async (req, res) => {
         res.json({ message: error.message })
     }
 }
+export const getRandomUsers = async(req, res)=>{
+    let usersTemp = []
+    try{
+        const users = await UserModel.findAll()
+        console.log(users)
+        // let contador = 0;
+        // users.sort(()=> Math.random() - 0.5)
+        // while( contador <9){
+        //     usersTemp.push(users[contador])
+        //     contador++;
+        // }
+        // users = usersTemp
+        
+        res.json(users)
+    }catch(error){
+        res.json({ message: error.message })
+    }
+}
 export const getUserById = async (req, res) => {
     try {
         const users = await UserModel.findByPk(req.params.id)
