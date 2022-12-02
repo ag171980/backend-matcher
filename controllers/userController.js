@@ -24,13 +24,13 @@ export const getRandomUsers = async(req, res)=>{
     try{
         const users = await UserModel.findAll()
         console.log(users)
-        // let contador = 0;
-        // users.sort(()=> Math.random() - 0.5)
-        // while( contador <9){
-        //     usersTemp.push(users[contador])
-        //     contador++;
-        // }
-        // users = usersTemp
+        let contador = 0;
+        users.sort(()=> Math.random() - 0.5)
+        while( contador < 9){
+            usersTemp.push(users[contador])
+            contador++;
+        }
+        users = usersTemp
         
         res.json(users)
     }catch(error){
