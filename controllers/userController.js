@@ -20,7 +20,7 @@ export const getAllUsers = async (req, res) => {
     }
 }
 export const getRandomUsers = async(req, res)=>{
-    console.log(req)
+    console.log(req.query)
     let usersTemp = []
     try{
         let users = await UserModel.findAll()
