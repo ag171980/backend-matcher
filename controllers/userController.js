@@ -20,11 +20,11 @@ export const getAllUsers = async (req, res) => {
     }
 }
 export const getRandomUsers = async(req, res)=>{
-    console.log(req.query)
+    console.log(req.query.genderInterest)
     let usersTemp = []
     try{
         let users = await UserModel.findAll()
-        users = users.filter(user=> user.genderInterest === "man")
+        users = users.filter(user=> user.genderInterest === req.query.genderInterest)
         let contador = 0;
         users.sort(()=> Math.random() - 0.5)
         while( contador < users.length){
