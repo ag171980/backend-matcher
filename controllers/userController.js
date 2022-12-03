@@ -20,6 +20,7 @@ export const getAllUsers = async (req, res) => {
     }
 }
 export const getRandomUsers = async(req, res)=>{
+    console.log(req.body)
     let usersTemp = []
     try{
         let users = await UserModel.findAll()
@@ -31,7 +32,6 @@ export const getRandomUsers = async(req, res)=>{
             contador++;
         }
         users = usersTemp
-        
         res.json(users)
     }catch(error){
         res.json({ message: error.message })
