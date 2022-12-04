@@ -39,7 +39,7 @@ export const verifyMatchesUsers = async (req, res)=>{
             let userByIdA = users.filter((us)=>us.id === idActualA)[0].name
             let userByIdB = users.filter((us)=>us.id === idActualB)[0].name
             allMatches.map((matchJ, jndex)=>{
-                if(matchJ.id_user_matchB === idActualA && match.id_user_matchA === idActualB){
+                if(matchJ.id_user_matchB === idActualA && matchJ.id_user_matchA === idActualB){
                     console.log(`${userByIdA} y ${userByIdB} hicieron match!`)
                 }
             })
