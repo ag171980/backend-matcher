@@ -93,7 +93,7 @@ export const validarUsuario = async (req, res) => {
         } else {
             let userResponse = {
                 id: userExists.id,
-                email: userExists.gender,
+                email: userExists.email,
                 name: userExists.name,
                 age: userExists.age,
                 description: userExists.description,
