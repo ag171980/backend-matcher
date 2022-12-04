@@ -31,9 +31,18 @@ export const getMatchById = async (req, res) => {
 export const verifyMatchesUsers = async (req, res)=>{
     try{
         const users = await UserModel.findAll();
-        // const allMatches = await MatchModel.findAll();
+        const allMatches = await MatchModel.findAll();
 
-        res.json(users)
+        allMatches.map((match, index)=>{
+            let idActualA = match.id_user_matchA;
+            let idActualB = match.id_user_matchB;
+            let userByIdA = users.filter((us)=>us.id === id_user_matchA)[0].name
+            let userByIdB = users.filter((us)=>us.id === id_user_matchB)[0].name
+            console.log(`${userByIdA} le dio like a ${userByIdB}`)
+
+        })
+
+        
     }catch(error){
         res.json({message: error.message })
     }
