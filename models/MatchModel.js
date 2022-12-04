@@ -6,11 +6,11 @@ import db from "../database/db.js"
 
 import { DataTypes } from "sequelize"
 
-const UserModel = db.define("matches", {
+const MatchModel = db.define("matches", {
     
     id_user_matchA: {type: DataTypes.INTEGER},
     id_user_matchB: {type: DataTypes.INTEGER}
 
 })
 
-export default UserModel
+export default MatchModel

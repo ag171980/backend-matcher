@@ -2,7 +2,7 @@
 
 
 import MatchModel from "../models/MatchModel.js";
-import UserModel from "../models/MatchModel.js";
+import UserModel from "../models/UserModel.js";
 
 /* METODOS DEL CRUD */
 
