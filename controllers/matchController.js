@@ -2,6 +2,7 @@
 
 
 import MatchModel from "../models/MatchModel.js";
+import UserModel from "../models/MatchModel.js";
 
 /* METODOS DEL CRUD */
 
@@ -24,6 +25,17 @@ export const getMatchById = async (req, res) => {
         res.json(matches)
     } catch (error) {
         res.json({ message: error.message })
+    }
+}
+
+export const verifyMatchesUsers = async (req, res)=>{
+    try{
+        const users = await UserModel.findAll();
+        const allMatches = await MatchModel.findAll();
+
+res.json(users)
+    }catch(error){
+        res.json({message: error.message })
     }
 }
 
