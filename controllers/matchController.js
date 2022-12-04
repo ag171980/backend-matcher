@@ -31,9 +31,9 @@ export const getMatchById = async (req, res) => {
 export const verifyMatchesUsers = async (req, res)=>{
     try{
         const users = await UserModel.findAll();
-        const allMatches = await MatchModel.findAll();
+        // const allMatches = await MatchModel.findAll();
 
-res.json(users)
+        res.json(users)
     }catch(error){
         res.json({message: error.message })
     }
