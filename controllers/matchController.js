@@ -36,8 +36,8 @@ export const verifyMatchesUsers = async (req, res)=>{
         allMatches.map((match, index)=>{
             let idActualA = match.id_user_matchA;
             let idActualB = match.id_user_matchB;
-            let userByIdA = users.filter((us)=>us.id === id_user_matchA)[0].name
-            let userByIdB = users.filter((us)=>us.id === id_user_matchB)[0].name
+            let userByIdA = users.filter((us)=>us.id === idActualA)[0].name
+            let userByIdB = users.filter((us)=>us.id === idActualB)[0].name
             console.log(`${userByIdA} le dio like a ${userByIdB}`)
 
         })
