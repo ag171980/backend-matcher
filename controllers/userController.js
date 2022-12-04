@@ -91,7 +91,20 @@ export const validarUsuario = async (req, res) => {
         if (userExists === null) {
             res.json({ message: "El usuario y/o email no coinciden" })
         } else {
-            res.json({message: "Iniciaste sesion correctamente", id: userExists.id})
+            let userResponse = {
+                id: userExists.id,
+                email: userExists.gender,
+                name: userExists.name,
+                age: userExists.age,
+                description: userExists.description,
+                img1: userExists.img1,
+                img2: userExists.img2,
+                img3: userExists.img3,
+                img4: userExists.img4,
+                gender: userExists.gender,
+                genderInterest: userExists.genderInterest
+            }
+            res.json({message: "Iniciaste sesion correctamente", user: userResponse})
         }
     } catch (error) {
         res.json({ message: error.message })
