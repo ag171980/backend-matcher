@@ -43,27 +43,24 @@ export const verifyMatchesUserById = async (req, res)=>{
         const allMatches = await MatchModel.findAll();
 
         let userActual = users.filter((match)=> match.id === idUserEntry)[0].name
-        let filterMatchesById = allMatches.filter((match)=>match.id_user_matchA === idUserEntry || match.id_user_matchB === idUserEntry)
-        let usersMatches = []
+        // let filterMatchesById = allMatches.filter((match)=>match.id_user_matchA === idUserEntry || match.id_user_matchB === idUserEntry)
+        // let usersMatches = []
         
-        filterMatchesById.map((match, index)=>{
-            let idActualA = match.id_user_matchA;
-            let idActualB = match.id_user_matchB;
-            let userByIdB = users.filter((us)=>us.id === idActualB)[0].name
-            filterMatchesById.map((matchJ, jndex)=>{
-                if(matchJ.id_user_matchB === idActualA && matchJ.id_user_matchA === idActualB){
-                    if(userByIdB !== userActual){
-                        let dataUserToMatch = users.filter((user)=>user.name === userByIdB)
-                        usersMatches.push(dataUserToMatch)
-                    }
-                    // eliminarItemEspecifico(userActual, usersMatches)
-                }
-            })
+        // filterMatchesById.map((match, index)=>{
+        //     let idActualA = match.id_user_matchA;
+        //     let idActualB = match.id_user_matchB;
+        //     let userByIdB = users.filter((us)=>us.id === idActualB)[0].name
+        //     filterMatchesById.map((matchJ, jndex)=>{
+        //         if(matchJ.id_user_matchB === idActualA && matchJ.id_user_matchA === idActualB){
+        //             if(userByIdB !== userActual){
+        //                 let dataUserToMatch = users.filter((user)=>user.name === userByIdB)
+        //                 usersMatches.push(dataUserToMatch)
+        //             }
+        //             // eliminarItemEspecifico(userActual, usersMatches)
+        //         }
+        //     })
 
-        })
-
-        
-
+        // })
         res.json(usersMatches)
     }catch(error){
         res.json({message: error.message })
