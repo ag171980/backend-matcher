@@ -59,7 +59,7 @@ export const verifyMatchesUserById = async (req, res)=>{
         //     })
 
         // })
-        res.json(req.query.idUser)
+        res.json(userActual)
     }catch(error){
         res.json({message: error.message })
     }
