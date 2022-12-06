@@ -12,6 +12,8 @@ import UserModel from "../models/UserModel.js";
 const eliminarItemEspecifico = (nombre, arr)=>{
     let arrResponse = []
     let cantRep = arr.filter((ar)=>ar === nombre).length
+
+    console.log(cantRep)
     let contador = 0;
     while(contador <= cantRep){
         let indexOf = arr.indexOf(nombre)
@@ -50,11 +52,9 @@ export const verifyMatchesUserById = async (req, res)=>{
         filterMatchesById.map((match, index)=>{
             let idActualA = match.id_user_matchA;
             let idActualB = match.id_user_matchB;
-            let userByIdA = users.filter((us)=>us.id === idActualA)[0].name
             let userByIdB = users.filter((us)=>us.id === idActualB)[0].name
             filterMatchesById.map((matchJ, jndex)=>{
                 if(matchJ.id_user_matchB === idActualA && matchJ.id_user_matchA === idActualB){
-                    console.log(`${userByIdA} y ${userByIdB} hicieron match!`)
                     usersMatches.push(userByIdB)
                 }
             })
