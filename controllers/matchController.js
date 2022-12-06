@@ -9,7 +9,6 @@ import UserModel from "../models/UserModel.js";
 
 //campos
 
-
 //MOSTRAR TODOS LOS REGISTROS
 export const getAllMatches = async (req, res) => {
     try {
@@ -49,9 +48,12 @@ export const verifyMatchesUserById = async (req, res)=>{
             })
 
         })
-        let userActual = users.filter((user)=> user.id === idUserEntry)
+        let result = usersMatches.filter((item,index)=>{
+            return usersMatches.indexOf(item) === index;
+          })
 
-        res.json(userActual[0].name)
+
+        res.json(result)
     }catch(error){
         res.json({message: error.message })
     }
