@@ -3,7 +3,7 @@
 
 import MatchModel from "../models/MatchModel.js";
 import UserModel from "../models/UserModel.js";
-const { Op } = require("sequelize");
+import  { Op } from "sequelize";
 /* METODOS DEL CRUD */
 
 
