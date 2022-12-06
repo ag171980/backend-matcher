@@ -10,6 +10,7 @@ import UserModel from "../models/UserModel.js";
 //campos
 
 const eliminarItemEspecifico = async (nombre, arr)=>{
+    console.log(arr)
     let indexOf = arr.indexOf(nombre)
     console.log(nombre)
     console.log(indexOf)
