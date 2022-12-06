@@ -9,9 +9,9 @@ import UserModel from "../models/UserModel.js";
 
 //campos
 
-const eliminarItemEspecifico = (nombre, arr)=>{
+const eliminarItemEspecifico = async (nombre, arr)=>{
     let arrResponse = []
-    let cantRep = arr.filter((ar)=>
+    let cantRep = await arr.filter((ar)=>
         ar === nombre
     )
 
