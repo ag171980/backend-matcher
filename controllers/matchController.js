@@ -70,7 +70,7 @@ export const verifyMatchesUserById = async (req, res)=>{
             })
 
         })
-        res.json(filterMatchesById)
+        res.json(usersMatches)
     }catch(error){
         res.json({message: error.message })
     }
