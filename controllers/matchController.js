@@ -60,7 +60,7 @@ export const verifyMatchesUserById = async (req, res)=>{
         //   })
         let result = eliminarItemEspecifico(userActual, usersMatches)
 
-        res.json(result)
+        res.json(usersMatches)
     }catch(error){
         res.json({message: error.message })
     }
