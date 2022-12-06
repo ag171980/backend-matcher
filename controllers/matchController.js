@@ -55,10 +55,10 @@ export const verifyMatchesUserById = async (req, res)=>{
         })
 
         let userActual = users.filter((match)=> match.id === idUserEntry)
-        let result = usersMatches.filter((item,index)=>{
-            return usersMatches.indexOf(item) === index;
-          })
-        result = eliminarItemEspecifico(userActual, usersMatches)
+        // let result = usersMatches.filter((item,index)=>{
+        //     return usersMatches.indexOf(item) === index;
+        //   })
+        let result = eliminarItemEspecifico(userActual, usersMatches)
 
         res.json(result)
     }catch(error){
