@@ -10,8 +10,15 @@ import UserModel from "../models/UserModel.js";
 //campos
 
 const eliminarItemEspecifico = (nombre, arr)=>{
-    let indexOf = arr.indexOf(nombre)
-    return arr.splice(indexOf, 1)
+    let arrResponse = []
+    let cantRep = arr.filter((ar)=>ar === nombre).length
+    let contador = 0;
+    while(contador <= cantRep){
+        let indexOf = arr.indexOf(nombre)
+        arrResponse = arr.splice(indexOf, 1)
+        contador++;
+    }
+    return arrResponse
 }
 
 //MOSTRAR TODOS LOS REGISTROS
@@ -55,9 +62,7 @@ export const verifyMatchesUserById = async (req, res)=>{
         })
 
         let userActual = users.filter((match)=> match.id === idUserEntry)
-        // let result = usersMatches.filter((item,index)=>{
-        //     return usersMatches.indexOf(item) === index;
-        //   })
+        
         let result = eliminarItemEspecifico(userActual, usersMatches)
 
         res.json(usersMatches)
