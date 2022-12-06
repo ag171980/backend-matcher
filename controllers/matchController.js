@@ -47,13 +47,13 @@ export const verifyMatchesUserById = async (req, res)=>{
                     {
                         id_user_matchA: 
                         {
-                            $eq: idUserEntry
+                            $eq: Number(idUserEntry)
                         }
                     }, 
                     {
                         id_user_matchB: 
                         {
-                            $eq: idUserEntry
+                            $eq: Number(idUserEntry)
                         }
                     }
                 ]
