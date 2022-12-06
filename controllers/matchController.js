@@ -11,16 +11,18 @@ import UserModel from "../models/UserModel.js";
 
 const eliminarItemEspecifico = (nombre, arr)=>{
     let arrResponse = []
-    let cantRep = arr.filter((ar)=>ar === nombre).length
+    let cantRep = arr.filter((ar)=>{
+        console.log(ar)
+    })
 
-    console.log(cantRep)
+    // console.log(cantRep)
     let contador = 0;
-    while(contador <= cantRep){
-        let indexOf = arr.indexOf(nombre)
-        arrResponse = arr.splice(indexOf, 1)
-        contador++;
-    }
-    return arrResponse
+    // while(contador <= cantRep){
+    //     let indexOf = arr.indexOf(nombre)
+    //     arrResponse = arr.splice(indexOf, 1)
+    //     contador++;
+    // }
+    return arr
 }
 
 //MOSTRAR TODOS LOS REGISTROS
