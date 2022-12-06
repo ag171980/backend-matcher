@@ -41,7 +41,15 @@ export const verifyMatchesUserById = async (req, res)=>{
         const users = await UserModel.findAll();
         const allMatches = await MatchModel.findAll();
         const userActual = await UserModel.findAll({where:{id: idUserEntry}})
-        const filterMatchesById = await MatchModel.findAll({where:{$or:[{id_user_matchA: Number(idUserEntry)}, {id_user_matchB: Number(idUserEntry)}]}})
+        const filterMatchesById = await MatchModel.findAll({where: 
+            {
+                $or:
+                {
+                    id_user_matchA: Number(idUserEntry), 
+                    id_user_matchB: Number(idUserEntry)
+                }
+            }
+            })
         // let filterMatchesById = allMatches.filter((match)=>match.id_user_matchA === idUserEntry || match.id_user_matchB === idUserEntry)
         // let usersMatches = []
         
