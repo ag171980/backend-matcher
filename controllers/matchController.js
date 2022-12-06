@@ -52,7 +52,8 @@ export const verifyMatchesUserById = async (req, res)=>{
             filterMatchesById.map((matchJ, jndex)=>{
                 if(matchJ.id_user_matchB === idActualA && matchJ.id_user_matchA === idActualB){
                     if(userByIdB !== userActual){
-                        usersMatches.push(userByIdB)
+                        let dataUserToMatch = users.filter((user)=>user.name === userByIdB)
+                        usersMatches.push(dataUserToMatch)
                     }
                     // eliminarItemEspecifico(userActual, usersMatches)
                 }
