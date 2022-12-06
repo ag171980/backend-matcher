@@ -11,9 +11,12 @@ import UserModel from "../models/UserModel.js";
 
 const eliminarItemEspecifico = async (nombre, arr)=>{
     let arrResponse = []
-    let cantRep = await arr.filter((ar)=>
-        ar === nombre
-    )
+    let cantRep = 0
+     arr.map((ar)=>{
+        if(ar === nombre){
+            cantRep++;
+        }
+    })
 
     console.log(cantRep)
     let contador = 0;
