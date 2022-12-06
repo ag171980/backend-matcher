@@ -37,11 +37,10 @@ export const getMatchById = async (req, res) => {
 
 export const verifyMatchesUserById = async (req, res)=>{
     let idUserEntry = req.query.idUser;
-    
+    console.log(idUserEntry)
     try{
         const users = await UserModel.findAll();
         const allMatches = await MatchModel.findAll();
-
         let userActual = users.filter((match)=> match.id === idUserEntry)
         // let filterMatchesById = allMatches.filter((match)=>match.id_user_matchA === idUserEntry || match.id_user_matchB === idUserEntry)
         // let usersMatches = []
