@@ -9,6 +9,11 @@ import UserModel from "../models/UserModel.js";
 
 //campos
 
+const eliminarItemEspecifico = (nombre, arr)=>{
+    let indexOf = arr.indexOf(nombre)
+    return arr.splice(indexOf, 1)
+}
+
 //MOSTRAR TODOS LOS REGISTROS
 export const getAllMatches = async (req, res) => {
     try {
@@ -48,10 +53,12 @@ export const verifyMatchesUserById = async (req, res)=>{
             })
 
         })
+
+        let userActual = allMatches.filter((match)=> match.id === idUserEntry)[0].name
         let result = usersMatches.filter((item,index)=>{
             return usersMatches.indexOf(item) === index;
           })
-
+        result = eliminarItemEspecifico(userActual, usersMatches)
 
         res.json(result)
     }catch(error){
