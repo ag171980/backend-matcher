@@ -54,7 +54,7 @@ export const verifyMatchesUserById = async (req, res)=>{
 
         })
 
-        let userActual = allMatches.filter((match)=> match.id === idUserEntry)
+        let userActual = users.filter((match)=> match.id === idUserEntry)
         let result = usersMatches.filter((item,index)=>{
             return usersMatches.indexOf(item) === index;
           })
