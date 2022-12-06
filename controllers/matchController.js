@@ -49,7 +49,8 @@ export const verifyMatchesUserById = async (req, res)=>{
             })
 
         })
-let userActual = users.filter((user)=> user.id === idUserEntry).name
+        let userActual = users.filter((user)=> user.id === idUserEntry)
+
         res.json(userActual)
     }catch(error){
         res.json({message: error.message })
