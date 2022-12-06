@@ -11,7 +11,9 @@ import UserModel from "../models/UserModel.js";
 
 const eliminarItemEspecifico = async (nombre, arr)=>{
     let indexOf = arr.indexOf(nombre)
-    arrResponse = arr.splice(indexOf, 1)
+    console.log(nombre)
+    console.log(indexOf)
+    arr.splice(indexOf, 1)
 }
 
 //MOSTRAR TODOS LOS REGISTROS
