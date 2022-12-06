@@ -42,7 +42,7 @@ export const verifyMatchesUserById = async (req, res)=>{
         const users = await UserModel.findAll();
         const allMatches = await MatchModel.findAll();
 
-        let userActual = users.filter((match)=> match.id === idUserEntry)[0].name
+        let userActual = users.filter((match)=> match.id === idUserEntry)
         // let filterMatchesById = allMatches.filter((match)=>match.id_user_matchA === idUserEntry || match.id_user_matchB === idUserEntry)
         // let usersMatches = []
         
@@ -61,7 +61,7 @@ export const verifyMatchesUserById = async (req, res)=>{
         //     })
 
         // })
-        res.json(usersMatches)
+        res.json(userActual)
     }catch(error){
         res.json({message: error.message })
     }
