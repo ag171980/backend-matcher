@@ -3,7 +3,7 @@
 
 import MatchModel from "../models/MatchModel.js";
 import UserModel from "../models/UserModel.js";
-
+const { Op } = require("sequelize");
 /* METODOS DEL CRUD */
 
 
@@ -43,17 +43,17 @@ export const verifyMatchesUserById = async (req, res)=>{
         const userActual = await UserModel.findAll({where:{id: idUserEntry}})
         const filterMatchesById = await MatchModel.findAll({where: 
             {
-                $or: [
+                [Op.or]: [
                     {
                         id_user_matchA: 
                         {
-                            $eq: Number(idUserEntry)
+                            [Op.eq]: Number(idUserEntry)
                         }
                     }, 
                     {
                         id_user_matchB: 
                         {
-                            $eq: Number(idUserEntry)
+                            [Op.eq]: Number(idUserEntry)
                         }
                     }
                 ]
