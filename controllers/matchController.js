@@ -54,13 +54,13 @@ export const verifyMatchesUserById = async (req, res)=>{
 
         })
 
-        let userActual = allMatches.filter((match)=> match.id === idUserEntry)[0].name
+        let userActual = allMatches.filter((match)=> match.id === idUserEntry)
         let result = usersMatches.filter((item,index)=>{
             return usersMatches.indexOf(item) === index;
           })
         result = eliminarItemEspecifico(userActual, usersMatches)
 
-        res.json(result)
+        res.json(userActual)
     }catch(error){
         res.json({message: error.message })
     }
