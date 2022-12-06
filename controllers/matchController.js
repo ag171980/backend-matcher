@@ -15,7 +15,7 @@ const eliminarItemEspecifico = (nombre, arr)=>{
         ar === nombre
     )
 
-    console.log(cantRep.length)
+    console.log(cantRep)
     let contador = 0;
     // while(contador <= cantRep){
     //     let indexOf = arr.indexOf(nombre)
