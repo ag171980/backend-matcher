@@ -33,20 +33,22 @@ export const verifyMatchesUserById = async (req, res)=>{
     try{
         const usersLikedsByEntry = await UserModel.findAll({where:{id: idUserEntry}});
         const allMatches = await MatchModel.findAll();
+        let filterMatchesById = allMatches.filter((match)=>match.id_user_matchA === idUserEntry || match.id_user_matchB === idUserEntry)
         let usersMatches = []
-        usersMatches = allMatches.filter((match)=>match.id_user_matchA === idUserEntry || match.id_user_matchB === idUserEntry)
-        // .map((match, index)=>{
-        //     let idActualA = match.id_user_matchA;
-        //     let idActualB = match.id_user_matchB;
-        //     let userByIdA = users.filter((us)=>us.id === idActualA)[0].name
-        //     let userByIdB = users.filter((us)=>us.id === idActualB)[0].name
-        //     allMatches.map((matchJ, jndex)=>{
-        //         if(matchJ.id_user_matchB === idActualA && matchJ.id_user_matchA === idActualB){
-        //             console.log(`${userByIdA} y ${userByIdB} hicieron match!`)
-        //         }
-        //     })
+        
+        filterMatchesById.map((match, index)=>{
+            let idActualA = match.id_user_matchA;
+            let idActualB = match.id_user_matchB;
+            let userByIdA = users.filter((us)=>us.id === idActualA)[0].name
+            let userByIdB = users.filter((us)=>us.id === idActualB)[0].name
+            filterMatchesById.map((matchJ, jndex)=>{
+                if(matchJ.id_user_matchB === idActualA && matchJ.id_user_matchA === idActualB){
+                    console.log(`${userByIdA} y ${userByIdB} hicieron match!`)
+                    usersMatches.push(userByIdB)
+                }
+            })
 
-        // })
+        })
 
         res.json(usersMatches)
     }catch(error){
