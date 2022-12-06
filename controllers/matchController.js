@@ -10,22 +10,8 @@ import UserModel from "../models/UserModel.js";
 //campos
 
 const eliminarItemEspecifico = async (nombre, arr)=>{
-    let arrResponse = []
-    let cantRep = 0
-     arr.map((ar)=>{
-        if(ar === nombre){
-            cantRep++;
-        }
-    })
-
-    console.log(cantRep)
-    let contador = 0;
-    // while(contador <= cantRep){
-    //     let indexOf = arr.indexOf(nombre)
-    //     arrResponse = arr.splice(indexOf, 1)
-    //     contador++;
-    // }
-    return arr
+    let indexOf = arr.indexOf(nombre)
+    arrResponse = arr.splice(indexOf, 1)
 }
 
 //MOSTRAR TODOS LOS REGISTROS
@@ -51,6 +37,8 @@ export const verifyMatchesUserById = async (req, res)=>{
     try{
         const users = await UserModel.findAll();
         const allMatches = await MatchModel.findAll();
+
+        let userActual = users.filter((match)=> match.id === idUserEntry)
         let filterMatchesById = allMatches.filter((match)=>match.id_user_matchA === idUserEntry || match.id_user_matchB === idUserEntry)
         let usersMatches = []
         
@@ -61,14 +49,13 @@ export const verifyMatchesUserById = async (req, res)=>{
             filterMatchesById.map((matchJ, jndex)=>{
                 if(matchJ.id_user_matchB === idActualA && matchJ.id_user_matchA === idActualB){
                     usersMatches.push(userByIdB)
+                    eliminarItemEspecifico(userActual, usersMatches)
                 }
             })
 
         })
 
-        let userActual = users.filter((match)=> match.id === idUserEntry)
         
-        let result = eliminarItemEspecifico(userActual, usersMatches)
 
         res.json(usersMatches)
     }catch(error){
